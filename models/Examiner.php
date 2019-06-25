@@ -1,9 +1,9 @@
 <?php
-// include_once "/../validate.php";
+//include_once "/../validate.php";
     class Examiner {
         //db stuff
         private $conn;
-        private $table = 'examiner';
+        private $table = '`examiner`';
 
         //Examiner properties
         public $id;
@@ -20,9 +20,38 @@
 
         //get Examiners
         public function getAllExaminers(){
-            $query = "SELECT * FROM ".$this->table."WHERE admin_id = :admin_id";
+            $query = "SELECT * FROM ".$this->table." WHERE `admin_id`= :admin_id ";
             $stmt = $this->conn->prepare($query);
-            $stmt->execute(["admin_id"=>$this->admin_id]);
+            $stmt->execute(['admin_id'=>$this->admin_id]);
+            $stmt = $stmt->fetchAll();
+            
+            if (count($stmt)>0) {
+                
+                foreach ($stmt as $examiner) {
+                    $field1name = $examiner["id"];
+                    $field2name = $examiner["name"];
+                    $field3name = $examiner["faculty"];
+                    $field4name = $examiner["department"];
+
+                    echo '<li><a href=""><span class="left"><p>'
+                    . $field1name.'</p>'.
+                    '<p>'.$field2name.'</p>'.
+                    '<p>'.$field3name.'</p>'.
+                    '<p>'.$field4name.'</p>'.
+                    '</span>
+                    <span class="right">
+                        <p><input type="button" name="edit" value="Edit"></p>
+                        <p><input type="button" name="details" value="Details"></p>
+                        <p><input type="button" name="delete" value="Delete"></p>
+                    </span>
+                </li>';
+                    
+                }
+            // die();
+            }else {
+                echo '<h2>No examiners added</h2>';
+            }
+            
             return $stmt;
         }
 

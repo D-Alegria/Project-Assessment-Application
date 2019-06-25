@@ -1,5 +1,5 @@
 <?php 
-    include_once 'config/connect.php';
+/*    include_once 'config/connect.php';
     include_once 'models/Student.php';
     include 'validate.php';
 
@@ -29,7 +29,7 @@
         }else {
             header("Location: index.php");
         }
-    }
+    }*/
     
 ?>
 <!DOCTYPE html>
@@ -59,36 +59,12 @@
                 <hr>
                 <ul>
                     <?php 
-                    $students = $student->getAllStudents();
-                    var_dump($students);
-                    if($students->rowCount()>0){
-                        foreach($students as $list){
-                            echo("<li>
-                            <a href=''>
-                                <span class='left'>
-                                    <p>".$list['id']."</p>
-                                    <p>".$list['fullname']."</p>
-                                    <p>".$list['project_id']."</p>
-                                    <p>Submission Date</p>
-                                </span>
-                                <span class='right'>
-                                <p><input type='button' name='edit' value='Edit'></p>
-                                <p><input type='button' name='details' value='Details'></p>
-                                <p><input type='button' name='delete' value='Delete'></p>
-                            </span>
-                            </a>
-                        </li>");}
-                    }else {
-                        echo "<p>No Students available</p>";
-                    }
-                    
+                        include "studentlist.php";
                     ?>
                 </ul>
             </div>
             <div class="button">
                 <input type="button" name="add" value="Add" onclick="show()">
-                <input type="button" name="edit" value="Edit">
-                <input type="button" name="delete" value="Delete">
             </div>
         </div>
     </div>

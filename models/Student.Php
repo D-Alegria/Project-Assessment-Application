@@ -1,10 +1,10 @@
 <?php
-    // include_once('/../validate.php');
+    //include_once('/../validate.php');
 
     class Student {
         //db stuff
         private $conn;
-        private $table = 'student';
+        private $table = '`student`';
 
         //student properties
         public $id;
@@ -25,8 +25,32 @@
             $query = "SELECT * FROM ". $this->table ." WHERE admin_id = :admin_id";
             $stmt = $this->conn->prepare($query);
             $stmt->execute(['admin_id'=>$this->admin_id]);
-            // $stmt = $stmt->fetchAll();
-            return $stmt;
+            $stmt = $stmt->fetchAll();
+
+            if (count($stmt)>0) {
+                
+                foreach ($stmt as $student) {
+                    $field1name = $student["id"];
+                    $field2name = $student["name"];
+                    $field3name = $student["project_id"];
+
+                    echo '<li><a href=""><span class="left"><p>'
+                    . $field1name.'</p>'.
+                    '<p>'.$field2name.'</p>'.
+                    '<p>'.$field3name.'</p>'.
+                    '</span>
+                    <span class="right">
+                        <p><input type="button" name="edit" value="Edit"></p>
+                        <p><input type="button" name="details" value="Details"></p>
+                        <p><input type="button" name="delete" value="Delete"></p>
+                    </span>
+                </li>';
+                    
+                }
+            // die();
+            }else {
+                echo '<h2>No Student added</h2>';
+            }
         }
 
         //get student by id

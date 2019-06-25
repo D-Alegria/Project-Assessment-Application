@@ -37,10 +37,6 @@
         $department = $details->department;
         $hashpassword = $details->password;
         
-        echo "password".$password."<br>";
-        echo "hashpassword".$hashpassword."<br>";
-        echo password_hash($password,PASSWORD_DEFAULT)."<br>";
-        var_dump(password_verify($hashpassword,$password));
         if (password_verify($password,$hashpassword)) {
             session_start();
             echo '44';

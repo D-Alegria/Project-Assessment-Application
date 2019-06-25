@@ -5,6 +5,10 @@ include_once('models/Student.php');
 include_once('models/Examiner.php');
 include('validate.php');
 $LoginError = "";
+    session_start();
+if (isset($_SESSION["LoggedInUserId"])){
+    echo $_SESSION["LoggedInUserId"];
+}
         if(isset($_POST["submit"])){
 
            include('config/connect.php');
@@ -43,13 +47,11 @@ $LoginError = "";
             } elseif ($studentUser > 0) {
                 echo "4";
                 if(getDetails($student,$password)){
-                    echo "working";
                     header("Location: students.php");
                    }else {
                     $LoginError = "<p><small>Wrong userId or Password. Please Try again.</small></p>";
                    }
             } else {
-                echo "not working";
                 $LoginError = "<p><small>No such user</small></p>";
             }
             // die();

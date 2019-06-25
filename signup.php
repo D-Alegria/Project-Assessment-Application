@@ -1,4 +1,4 @@
-<?php 
+a<?php 
 include_once('config/connect.php');
 include_once('models/Admin.php');
 include('validate.php');

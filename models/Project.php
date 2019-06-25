@@ -3,7 +3,7 @@
     class Project {
         //db stuff
         private $conn;
-        private $table = 'project';
+        private $table = '`project`';
 
         //Project properties
         public $id;
@@ -19,15 +19,37 @@
 
         //get Projects
         public function getAllProjects(){
-            $query = "SELECT * FROM ". $this->table"WHERE admin_id = :admin_id";
+            $query = "SELECT * FROM ".$this->table." WHERE `admin_id`= :admin_id ";
             $stmt = $this->conn->prepare($query);
             $stmt->execute(['admin_id'=>$this->admin_id]);
-            // $stmt = $stmt->fetchAll();
-            return $stmt;
+            $stmt = $stmt->fetchAll();
+
+            if (count($stmt)>0) {
+                
+                foreach ($stmt as $project) {
+                    $field1name = $project["topic"];
+                    $field2name = $project["duedate"];
+
+                    echo '<li><a href=""><span class="left"><p>'
+                    . $field1name.'</p>'.
+                    '<p>'.$field2name.'</p>'.
+                    '</span>
+                    <span class="right">
+                        <p><input type="button" name="edit" value="Edit"></p>
+                        <p><input type="button" name="details" value="Details"></p>
+                        <p><input type="button" name="delete" value="Delete"></p>
+                    </span>
+                </li>';
+                    
+                }
+            // die();
+            }else {
+                echo '<h2>No Projects added</h2>';
+            }
         }
 
         //get Project by id
-        public function getProjectById){
+        public function getProjectById(){
             $query = "SELECT * FROM ". $this->table ." WHERE id = :id";
             $stmt = $this->conn->prepare($query);
             $stmt->execute(['id'=>$this->id]);
@@ -115,4 +137,4 @@
             printf("Error: %s.\n", $stmt->error);
             return false;
         }
-    }r
+    }

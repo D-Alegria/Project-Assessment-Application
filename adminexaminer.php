@@ -1,5 +1,3 @@
-<?php include "config/connect.php" ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,111 +23,7 @@
                 <h2><p>Examiner List</p></h2>
                 <hr>
                 <ul>
-                    <li>
-                        <a href="">
-                            <span class="left">
-                                <p>Examiner ID</p>
-                                <p>Examiner Name</p>
-                                <p>Faculty</p>
-                                <p>Department</p>
-                            </span>
-                            <span class='right'>
-                                <p><input type="button" name="edit" value="Edit"></p>
-                                <p><input type="button" name="details" value="Details"></p>
-                                <p><input type="button" name="delete" value="Delete"></p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="left">
-                                <p>Examiner ID</p>
-                                <p>Examiner Name</p>
-                                <p>Faculty</p>
-                                <p>Department</p>
-                            </span>
-                            <span class='right'>
-                                <p><input type="button" name="edit" value="Edit"></p>
-                                <p><input type="button" name="details" value="Details"></p>
-                                <p><input type="button" name="delete" value="Delete"></p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="left">
-                                <p>Examiner ID</p>
-                                <p>Examiner Name</p>
-                                <p>Faculty</p>
-                                <p>Department</p>
-                            </span>
-                            <span class='right'>
-                                <p><input type="button" name="edit" value="Edit"></p>
-                                <p><input type="button" name="details" value="Details"></p>
-                                <p><input type="button" name="delete" value="Delete"></p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="left">
-                                <p>Examiner ID</p>
-                                <p>Examiner Name</p>
-                                <p>Faculty</p>
-                                <p>Department</p>
-                            </span>
-                            <span class='right'>
-                                <p><input type="button" name="edit" value="Edit"></p>
-                                <p><input type="button" name="details" value="Details"></p>
-                                <p><input type="button" name="delete" value="Delete"></p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="left">
-                                <p>Examiner ID</p>
-                                <p>Examiner Name</p>
-                                <p>Faculty</p>
-                                <p>Department</p>
-                            </span>
-                            <span class='right'>
-                                <p><input type="button" name="edit" value="Edit"></p>
-                                <p><input type="button" name="details" value="Details"></p>
-                                <p><input type="button" name="delete" value="Delete"></p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="left">
-                                <p>Examiner ID</p>
-                                <p>Examiner Name</p>
-                                <p>Faculty</p>
-                                <p>Department</p>
-                            </span>
-                            <span class='right'>
-                                <p><input type="button" name="edit" value="Edit"></p>
-                                <p><input type="button" name="details" value="Details"></p>
-                                <p><input type="button" name="delete" value="Delete"></p>
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span class="left">
-                                <p>Examiner ID</p>
-                                <p>Examiner Name</p>
-                                <p>Faculty</p>
-                                <p>Department</p>
-                            </span>
-                            <span class='right'>
-                                <p><input type="button" name="edit" value="Edit"></p>
-                                <p><input type="button" name="details" value="Details"></p>
-                                <p><input type="button" name="delete" value="Delete"></p>
-                            </span>
-                        </a>
-                    </li>
+                    <?php include("adminexaminercall.php");?>
                 </ul>
             </div>
             <div class="button">
