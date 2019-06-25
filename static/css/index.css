@@ -1,0 +1,59 @@
+a{
+    color: #399af5;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .wrapper{
+    width: 600px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content:center;  
+}
+
+form{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    align-items:center;
+    justify-content:center;  
+    
+}
+
+p {
+    width: 440px;
+    height: 70px;
+    display: flex;
+    align-items:center;
+    justify-content:center;  
+    margin: 10px;
+}
+
+p input[type="text"], p input[type="password"] {
+    box-sizing: border-box;
+    width: 90%;
+    height: 45px;
+    padding: 0 25px 0 25px;
+    border-radius: 5px;
+}
+
+a:hover{
+    border: none;
+}
+
+
+
+
+
+
+
+
+

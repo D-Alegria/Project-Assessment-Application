@@ -1,0 +1,153 @@
+a{
+    font-size: 15px;
+}
+
+.container{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 100vh;
+    grid-column-gap: 10px;
+    overflow: hidden;
+}
+
+.nav{
+    background: #0D0E20;
+    padding: 16px;
+}
+
+.nav > p{
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.title{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input[type="button"]{
+    width: 118px;
+    height: 47px;
+}
+
+.content {
+    padding: 10px;
+    width: 100%;
+    overflow-y: scroll; 
+}
+
+form{
+    width: 95%;
+}
+
+form div{
+    margin-bottom: 10px;
+}
+.wrapper{
+    width: 90%;
+    padding: 10px;
+    background: #F6F6F6;
+    border: 1px black solid;
+    border-radius: 5px;
+}
+
+ul {
+    box-sizing: border-box;
+    padding: 10px;
+    padding-left: 0;
+    overflow-y: scroll;
+    height: 500px;
+}
+ul p{
+    color:black;
+}
+li {
+    margin-bottom: 10px;
+}
+li a {
+    background-color: #ffffff;
+    border:1px black solid;
+    padding: 10px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.button{
+    margin-top: 10px;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+}
+
+li a:hover{
+    border:3px #05cf20 solid;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.right p{
+    margin: 3px;
+}
+
+.left{
+    text-align: left;
+}
+
+.add{
+    position: fixed;
+    top:0;
+    left: 0;
+    visibility: hidden;
+    /* display: none; */
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.wrap{
+    width: 600px;
+    height: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px black solid;
+    display: flex;
+    background-color: #ffffff;
+    justify-content:center; 
+}
+
+p input[type="text"], select{
+    box-sizing: border-box;
+    width: 90%;
+    height: 45px;
+    padding: 0 25px 0 25px;
+    border-radius: 5px;
+}
+
+form{
+    width: 80%;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    align-items:center;
+    justify-content:center;  
+}
+.wrap-input{
+    width: 440px;
+    height: 70px;
+    display: flex;
+    align-items:center;
+    justify-content:center;  
+    margin: 10px;
+}
