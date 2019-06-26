@@ -64,29 +64,10 @@
                 </ul>
             </div>
             <div class="button">
-                <input type="button" name="add" value="Add" onclick="show()">
+                <input type="submit" name="add" value="Add" onclick="show('add')">
             </div>
         </div>
     </div>
-    <div class="add" id="add">
-        <div class="wrap">
-            <h2><p>New Student</p></h2>
-            <hr>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
-                <p class = "wrap-input"><input type="text" name="sname" id="sname" placeholder="Last Name"></p>
-                <p class = "wrap-input"><input type="text" name="fname" id="fname" placeholder="First Name"></p>
-                <p class = "wrap-input"><input type="text" name="faculty" id="faculty" placeholder= "Faculty"></p>
-                <p class = "wrap-input"><input type="text" name="department" id="department" placeholder="Department"></p>
-                <p class = "wrap-input">
-                    <select name="project" id="">
-                        <option value="Project 1">Project 1</option>
-                        <option value="Project 2">Project 2</option>
-                        <option value="Project 2">Project 3</option>
-                    </select>
-                </p>
-                <p class = "wrap-input"><input type="submit" name="submit" id="submit" value="Submit" onclick="hide()"></p>
-            </form>
-        </div>
-    </div>
+    <?php include "AEDD.php";?>
 </body>
 </html>

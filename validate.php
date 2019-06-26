@@ -22,12 +22,12 @@
     }
 
     function createStudentId($fname,$lname){
-        $id = substr($fname,0,1) . date('is')  . substr($lname,0,1) ;
+        $id = substr($fname,0,2) . date('is')  . substr($lname,0,2) ;
         return $id;
     }
 
     function createExaminerId($fname,$lname){
-        $id = date('is') . substr($fname,0,1) . substr($lname,0,1);
+        $id = date('is') . substr($fname,0,2) . substr($lname,0,2);
         return $id;
     }
     function getDetails($details,$password){

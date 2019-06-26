@@ -7,7 +7,7 @@
         private $table = '`student`';
 
         //student properties
-        public $id;
+        public $id; 
         public $name;
         public $faculty;
         public $department;
@@ -34,15 +34,18 @@
                     $field2name = $student["name"];
                     $field3name = $student["project_id"];
 
-                    echo '<li><a href=""><span class="left"><p>'
+                    $edit = "'edit'";
+                    $detail = "'detail'";
+                    $delete = "'delete'";
+                    echo '<li><span class="left"><p>'
                     . $field1name.'</p>'.
                     '<p>'.$field2name.'</p>'.
                     '<p>'.$field3name.'</p>'.
                     '</span>
                     <span class="right">
-                        <p><input type="button" name="edit" value="Edit"></p>
-                        <p><input type="button" name="details" value="Details"></p>
-                        <p><input type="button" name="delete" value="Delete"></p>
+                        <p><input type="button" name="edit" value="Edit" onclick="show('.$edit.')"></p>
+                        <p><input type="button" name="details" value="Details" onclick="show('.$detail.')"></p>
+                        <p><input type="button" name="delete" value="Delete" onclick="show('.$delete.')"></p>
                     </span>
                 </li>';
                     
@@ -74,12 +77,8 @@
 
         //create student
         public function createStudent(){
-            $query = "INSERT INTO `admin` (`id`, `name`, `faculty`, `department`, `project_id`, `admin_id`, `password`) 
-            VALUES (:id, :email, :fullname, :faculty, :department, :project_id, :admin_id, :password)";
-            // "INSERT INTO "
-            // .$this->table.
-            // " SET (id, name, password, faculty, department, project_id, admin_id) 
-            // VALUES (:id, :name, :password, :faculty, :department, :project_id, :admin_id)";
+            $query = "INSERT INTO ".$this->table." (`id`, `name`, `faculty`, `department`, `project_id`, `admin_id`, `password`) 
+            VALUES (:id, :name, :faculty, :department, :project_id, :admin_id, :password)";
             $stmt = $this->conn->prepare($query);
 
             $this->id = validateDataForm($this->id);

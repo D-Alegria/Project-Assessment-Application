@@ -66,8 +66,6 @@ ul p{
 }
 li {
     margin-bottom: 10px;
-}
-li a {
     background-color: #ffffff;
     border:1px black solid;
     padding: 10px;
@@ -106,7 +104,48 @@ li a:hover{
     top:0;
     left: 0;
     visibility: hidden;
-    /* display: none; */
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.detail{
+    position: fixed;
+    top:0;
+    left: 0;
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.edit{
+    position: fixed;
+    top:0;
+    left: 0;
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.delete{
+    position: fixed;
+    top:0;
+    left: 0;
+    visibility: hidden;
     width: 100vw;
     height: 100vh;
     display:flex;

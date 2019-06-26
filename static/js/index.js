@@ -2,10 +2,12 @@ function Count(params) {
     
 }
 
-function show(){
-    document.getElementById("add").style.visibility="visible";
+function show(item){
+    document.getElementById(item).style.visibility="visible";
+    var id 
+    
 }
 
-function hide(){
-    document.getElementById("add").style.visibility="hidden";
+function hide(item){
+    document.getElementById(item).style.visibility="hidden";
 }
