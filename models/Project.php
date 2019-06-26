@@ -30,7 +30,7 @@
                     $field1name = $project["topic"];
                     $field2name = $project["duedate"];
 
-                    echo '<li><a href=""><span class="left"><p>'
+                    echo '<li><span class="left"><p>'
                     . $field1name.'</p>'.
                     '<p>'.$field2name.'</p>'.
                     '</span>

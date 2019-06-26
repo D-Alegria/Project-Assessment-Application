@@ -33,7 +33,7 @@
                     $field3name = $examiner["faculty"];
                     $field4name = $examiner["department"];
 
-                    echo '<li><a href=""><span class="left"><p>'
+                    echo '<li><span class="left"><p>'
                     . $field1name.'</p>'.
                     '<p>'.$field2name.'</p>'.
                     '<p>'.$field3name.'</p>'.

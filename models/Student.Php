@@ -14,6 +14,13 @@
         public $project_id;
         public $admin_id;
         public $password;
+        public $abstract;
+        public $LR;
+        public $methodology;
+        public $analysis;
+        public $conclusion;
+        public $submitted;
+        public $marked;
 
         //contructor with db
         public function __construct($db){
@@ -43,14 +50,13 @@
                     '<p>'.$field3name.'</p>'.
                     '</span>
                     <span class="right">
-                        <p><input type="button" name="edit" value="Edit" onclick="show('.$edit.')"></p>
-                        <p><input type="button" name="details" value="Details" onclick="show('.$detail.')"></p>
-                        <p><input type="button" name="delete" value="Delete" onclick="show('.$delete.')"></p>
+                        <p><input type="button" name="edit" id= "'.$field1name.'" value="Edit" onclick="getId('.$edit.',this.id)"></p>
+                        <p><input type="button" name="details" id= "'.$field1name.'" value="Details" onclick="getId('.$detail.',this.id)"></p>
+                        <p><input type="button" name="delete" id= "'.$field1name.'" value="Delete" onclick="getId('.$delete.',this.id)"></p>
                     </span>
                 </li>';
                     
                 }
-            // die();
             }else {
                 echo '<h2>No Student added</h2>';
             }
@@ -96,6 +102,8 @@
             $stmt->bindParam(':project_id', $this->project_id);
             $stmt->bindParam(':admin_id', $this->admin_id);
             $stmt->bindParam(':password', $this->password);
+            $stmt->bindParam(':submitted', $this->submitted);
+            $stmt->bindParam(':marked', $this->marked);
             
             if($stmt->execute()){
                 return true;
@@ -139,6 +147,38 @@
             return false;
         }
 
+        //update Studentproject
+        public function updateStudentProject(){
+            $query = "UPDATE "
+            .$this->table.
+            " SET `abstract` = :abstract, `LR` =:LR , `methodology`=:methodology, `analysis`=:analysis, `conclusion` = :conclusion, `submitted`:=submitted 
+            WHERE `id`=:id";
+            $stmt = $this->conn->prepare($query);
+            echo $query;
+            $this->id = validateDataForm($this->id);
+            $this->abstract = validateDataForm($this->abstract);
+            $this->LR = validateDataForm($this->LR);
+            $this->methodology = validateDataForm($this->methodology);
+            $this->analysis = validateDataForm($this->analysis);
+            $this->conclusion = validateDataForm($this->conclusion );
+
+            $stmt->bindParam(':id', $this->id);
+            $stmt->bindParam(':abstract', $this->abstract);
+            $stmt->bindParam(':LR', $this->LR);
+            $stmt->bindParam(':methodology', $this->methodology);
+            $stmt->bindParam(':analysis', $this->analysis);
+            $stmt->bindParam(':conclusion', $this->conclusion);
+            $stmt->bindParam(':submitted', $this->submitted);
+
+            
+            if($stmt->execute()){
+                return true;
+            }
+
+            printf("Error: %s.\n", $stmt->error);
+            return false; 
+        }
+
         //delete student
         public function deleteStudent(){
             $query = "DELETE FROM ".$this->table." WHERE id:=id";
@@ -157,5 +197,20 @@
 
             printf("Error: %s.\n", $stmt->error);
             return false;
+        }
+
+        public function getSubmittedStudents(){
+            $query = "SELECT * FROM ".$this->table." WHERE student_id =: student_id && admin_id =: admin_id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute(['student_id'=>$this->student_id ,'admin_id'=>$this->admin_id]);
+            $row = $stmt->fetch();
+            
+            $this->student_id = $row['student_id'];
+            $this->admin_id = $row['admin_id'];
+            $this->abstract = $row['abstract'];
+            $this->LR = $row['LR'];
+            $this->methodology = $row['methodology'];
+            $this->analysis = $row['analysis'];
+            $this->conclusion = $row['conclusion'];
         }
     }

@@ -1,5 +1,3 @@
-<?php include "config/connect.php" ?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -16,12 +14,19 @@
 				<p class= "title">Student Page</p><br>
 				<p>Student Fullname</p>
 				<p>Student Matric No.</p> 
-				<p>Student Project Name</p>
 				<p>Project Due date</p>
 				
 			</div>
 			<div class="content">
-				<form action="" method="post">
+				<form action="studentlist.php" method="post">
+					<div>
+						<p><label for="topic">Topic</label></p>
+						<p>
+							<select name="topic" id="topic">
+								<option value=""></option>
+							</select>
+						</p>
+					</div>
 					<div>
 						<p><label for="abstract">Abstract</label></p>
 						<p><textarea name="abstract" id="abstract" cols="30" rows="10" placeholder="Type here..."></textarea></p>
@@ -42,7 +47,7 @@
 						<p><label for="conclusion">Conclusion</label></p>
 						<p><textarea name="conclusion" id="" cols="30" rows="10" placeholder="Type here..."></textarea></p>
 					</div>
-					<input type="button" value="Sumbit">
+					<input type="submit" name = "project" value="Sumbit">
 				</form>
 			</div>
 		</div>
